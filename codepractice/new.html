@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar with Dropdown Links</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #637ab7;
+        color: #fff;
+        padding: 15px;
+        position: relative; /* Make the navbar relative to its container */
+        z-index: 1; /* Ensure the navbar stays on top */
+      }
+      .navbar .logo {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .navbar .menu-icon {
+        cursor: pointer;
+        display: inline-block;
+        margin-left: 10px;
+      }
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 50px; /* Adjusted top position to place it below the navbar */
+        left: 0;
+        background-color: #fff;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      .sidebar a:hover {
+        color: #f1f1f1;
+      }
+      .sidebar .close-btn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <span class="logo">Your Logo</span>
+      <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+    </nav>
+
+    <div id="sidebar" class="sidebar">
+      <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()"
+        >&times;</a
+      >
+      <a href="#" onclick="toggleSidebar()">Link 1</a>
+      <a href="#" onclick="toggleSidebar()">Link 2</a>
+      <div class="dropdown">
+        <a href="#" onclick="toggleSidebar()">Dropdown</a>
+        <div class="dropdown-content">
+          <a href="#" onclick="toggleSidebar()">Sublink 1</a>
+          <a href="#" onclick="toggleSidebar()">Sublink 2</a>
+          <a href="#" onclick="toggleSidebar()">Sublink 3</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.getElementById("sidebar");
+        if (sidebar.style.width === "250px") {
+          sidebar.style.width = "0";
+        } else {
+          sidebar.style.width = "250px";
+        }
+      }
+    </script>
+  </body>
+</html>
